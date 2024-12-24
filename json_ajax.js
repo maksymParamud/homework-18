@@ -1,3 +1,5 @@
+$("#fact_div").hide().html(data);
+
 $.ajax({
     type: "GET",
     url: "http://numbersapi.com/14",
@@ -5,10 +7,16 @@ $.ajax({
 })
 .done(function(data){
     console.log(data);
+    $("#fact_div").show().html(data);
 }
 ).fail(function(data){
     console.log("ERROR");
 }
-).always(
+).always(function(){
     console.log("AJAX request ENDED")
+}
 );
+
+parseInt($("#title").val(), function(){
+    alert("будь ласка введіть правильне число");
+});
